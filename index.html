@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>Linda Lin</Title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.js"
+        integrity="sha512-kkIHo15i5P7DYFnljV7WfIhciExiBE+B6wOMFIynb0bVg0si8EBkW0waGyzjI1X1dv3GNIGe5QRKDrK2bCRTCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://pixijs.download/release/pixi.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script type="module">
+
+        // Create a new application
+        const app = new PIXI.Application();
+
+        // Initialize the application
+        await app.init({
+            backgroundAlpha: 0, // Transparent background
+            width: window.innerWidth, // Explicitly set the width
+            height: window.innerHeight - 40, // Subtract the offset for `top: 40px`
+            resizeTo: null, // Prevent automatic resizing      
+        });
+
+        app.canvas.style.position = 'absolute';
+        app.canvas.style.top = '40px';
+        app.canvas.style.left = '0';
+        app.canvas.width = window.innerWidth - 16;
+
+
+        //var context = app.canvas.getContext('webgl', {preserveDrawingBuffer: true});
+
+        // Append the application canvas to the document body
+        document.body.appendChild(app.canvas);
+
+        // Load the textures
+        await PIXI.Assets.load([
+            './Images/pixi-filters/displace.png',
+            './Images/pixi-filters/lense.png',
+        ]);
+
+        app.stage.eventMode = 'static';
+
+        const container = new PIXI.Container();
+
+        app.stage.addChild(container);
+
+
+        const padding = 100;
+        const bounds = new PIXI.Rectangle(-padding, -padding, app.screen.width + padding * 2, app.screen.height + padding * 2);
+
+
+        const displacementSprite = PIXI.Sprite.from('./Images/pixi-filters/displace.png');
+
+        // Create a displacement filter
+        const displacementFilter = new PIXI.DisplacementFilter({ sprite: displacementSprite, scale: 50 });
+
+        app.stage.addChild(displacementSprite);
+
+        // Apply the filter
+        container.filters = [displacementFilter];
+
+        displacementSprite.anchor.set(0.5);
+
+        const ring = PIXI.Sprite.from('./Images/pixi-filters/lense.png');
+
+        ring.anchor.set(0.5);
+
+        ring.visible = false;
+
+        app.stage.addChild(ring);
+
+
+        html2canvas(document.querySelector('.container'), { backgroundColor: null }).then((canvas) => {
+            const containerElement = document.querySelector('.container');
+            const containerRect = containerElement.getBoundingClientRect();
+
+            // Ensure the canvas does not exceed viewport dimensions
+            const viewportWidth = Math.min(containerRect.width, window.innerWidth);
+            const viewportHeight = Math.min(containerRect.height, window.innerHeight);
+
+            // Set the canvas dimensions within bounds
+            canvas.style.width = `${viewportWidth}px`;
+            canvas.style.height = `${viewportHeight}px`;
+
+            // Use the canvas as a PIXI texture
+            const htmlTexture = PIXI.Texture.from(canvas);
+            const htmlSprite = new PIXI.Sprite(htmlTexture);
+
+            // Scale the sprite to match the viewport dimensions
+            htmlSprite.width = viewportWidth;
+            htmlSprite.height = viewportHeight;
+
+            // Position the sprite
+            htmlSprite.x = containerRect.left;
+            htmlSprite.y = containerRect.top;
+
+            // Add the sprite to the PIXI container
+            container.addChild(htmlSprite);
+
+            // Hide the original container to prevent overlap
+            document.getElementById('container').style.visibility = 'hidden';
+        });
+
+        app.stage.on('mousemove', onPointerMove).on('touchmove', onPointerMove);
+
+        function onPointerMove(eventData) {
+            console.log(1);
+            ring.visible = true;
+
+            displacementSprite.position.set(eventData.data.global.x - 25, eventData.data.global.y);
+            ring.position.copyFrom(displacementSprite.position);
+        }
+
+        let count = 0;
+
+
+    </script>
+
+
+</head>
+
+
+<body>
+
+
+    <canvas id="background"></canvas>
+
+    <header class="navbar">
+        <ul id="nav">
+            <li id="navtitle">LINDA LIN/</li>
+            <div class="dropdown">
+                <button class="dropbtn">WORK<i class="bi bi-chevron-down"></i></button>
+                <div class="dropdown-menu">
+                    <a href="coco.html">COCO</a>
+                    <a href="cura.html">CURA</a>
+                    <a href="zara.html">ZARA REDESGIN</a>
+                </div>
+            </div>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="LINDA LIN.pdf">RESUME</a></li>
+        </ul>
+        <div class="container" id="container">
+            <div class="Maindescription">
+                <p class="text1">Linda Lin<span class="Description">INFJ • SHE/HER</span></p>
+                <p class="text2">is a <strong>Visual Designer</strong><br> crafting meaningful and fun
+                    experiences!</p>
+                <p class="Currently">Currently<span class="Past">Past</span></p>
+                <p class="CurrentlyDescription">@George Brown finishing my study in<span class="PastDescription">Graphic
+                        Artist @Mad Engine</span><br>Front-End development</p>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <h1 class="Heythere">Hey There!</h1>
+    <main class="main-background" style="background: none; height: auto; padding-bottom: 40px;">
+
+        <section class="AboutTextSection">
+            <p>I'm a <strong>Visual Designer</strong> with a background in <strong>Front - End Development</strong>,
+                passionate in improving the lives of others through crafting innovative and thoughtful designs, striving
+                to
+                bridge the gap between aesthetics and functionality.
+                <br>
+                <br>
+                Previously, I worked in many design positions including <strong>Graphic Artist, Graphic
+                    Designer</strong>,
+                and <strong>Content & Social Media Marketing.</strong>
+                <br>
+                <br>
+                Apart from design, my interest includes <strong>fashion, building lego, plants,</strong> and
+                <strong>designing interior spaces.</strong>
+                <br>
+                <br>
+                I am committed to continuous growth and learning, and I would love to connect with fellow designers who
+                share similar interests.
+            </p>
+            <img src="./Images/Myprofile.jpg" alt="Myprofile" class="myimage">
+            <p class="Resume">Resume</p>
+        </section>
+
+    </main>
+
+    <div class="featuredproject">
+        <h1>Featured Projects</h1>
+    </div>
+
+
+    <section class="CocoSection">
+
+        <div>
+            <img src="./Images/COCO.jpg" alt="coco">
+        </div>
+
+        <div>
+            <h3>COCO</h3>
+            <p>Re-designing the digital experience of Taiwan’s Global bubble tea mobile app.</p>
+            <p1>Mobile Design // Prototyping // UI Design</p1>
+            <button class="projectbutton">View work</button>
+        </div>
+    </section>
+
+    <section class="CuraSection">
+        <div>
+        <img src="./Images/CURA.jpg" alt="Cura">
+        </div>
+
+        <div>
+        <h3>Cura</h3>
+        <p>Digital platform catering to women's health in remote Canada.</p>
+        <p1>Product Design // Prototyping // Research</p1>
+        <button class="projectbutton">View work</button>
+        </div>
+    </section>
+   
+
+    <footer class="footerbg">
+        <div>
+            <h2>Nice to see you here!</h2>
+
+            <p>lindalin.connect@gmail.com</p>
+            <p>This website is best viewed on desktop</p>
+            <p class="m">Made with love @2024 Linda Jia Lin</p>
+            <br>
+        </div>
+
+        <div>
+            <h2>Want to get in touch?</h2>
+            <div>
+                <p class="bi bi-instagram"> Instagram </p>
+                <p class="bi bi-linkedin"> Linkedin </p>
+                <p class="bi bi-envelope"> Mail </p>
+            </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
