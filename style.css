@@ -42,16 +42,16 @@ header li {
 
 .text1 {
     margin-left: 250px;
-    padding-top: 180px;
-    font-size: 64px;
+    padding-top: 160px;
+    font-size: 48px;
     color: white;
     font-family: Helvetica;
 }
 
 .text2 {
     margin-left: 250px;
-    padding-top: 120px;
-    font-size: 48px;
+    padding-top: 80px;
+    font-size: 32px;
     color: white;
     font-family: Helvetica;
 }
@@ -59,15 +59,15 @@ header li {
 
 .Description {
     color: grey;
-    font-size: 24px;
+    font-size: 20px;
     font-family: Helvetica;
     font-style: Oblique;
-    margin-left: 40px;
+    margin-left: 30px;
 
 }
 
 .Past {
-    font-size: 32px;
+    font-size: 24px;
     color: white;
     font-family: Helvetica, sans-serif;
     font-style: italic;
@@ -78,8 +78,8 @@ header li {
 
 .Currently {
     margin-left: 250px;
-    padding-top: 100px;
-    font-size: 32px;
+    padding-top: 80px;
+    font-size: 24px;
     color: white;
     font-family: Helvetica, sans-serif;
     font-style: italic;
@@ -90,7 +90,7 @@ header li {
     margin-left: 250px;
     margin-top: 20px;
     color: gray;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Helvetica';
     font-style: Oblique;
 
@@ -98,10 +98,17 @@ header li {
 
 .PastDescription {
     color: gray;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Helvetica';
     font-style: Oblique;
     margin-left: 350px;
+}
+
+.scrolldown{
+    height: auto;
+    width:30px;
+    padding-top: 200px;
+    margin-left: 800px;
 }
 
 
@@ -321,4 +328,12 @@ header li {
     color: white;
     text-decoration: none;
     font-family: Helvetica;
+}
+
+.bi a{
+    padding-left:5px;
+}
+
+.bi i{
+    margin-left:5px;
 }
