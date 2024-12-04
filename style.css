@@ -220,7 +220,7 @@ header li {
     -webkit-text-fill-color: transparent;
     align-items: center;
     padding-top: 150px;
-    padding-bottom: 50px;
+    padding-bottom: 120px;
 }
 
 .featuredproject {
@@ -311,4 +311,14 @@ header li {
 .Getintouch {
     color: white;
 
+}
+
+.footerbg a:hover {
+    color: rgb(156, 153, 153);
+}
+
+.footerbg a {
+    color: white;
+    text-decoration: none;
+    font-family: Helvetica;
 }
