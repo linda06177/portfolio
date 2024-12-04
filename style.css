@@ -58,10 +58,10 @@ header li {
 
 
 .Description {
-    color: grey;
+    color: white;
     font-size: 20px;
     font-family: Helvetica;
-    font-style: Oblique;
+    font-weight: lighter;
     margin-left: 30px;
 
 }
@@ -89,18 +89,18 @@ header li {
 .CurrentlyDescription {
     margin-left: 250px;
     margin-top: 20px;
-    color: gray;
+    color: white;
     font-size: 20px;
     font-family: 'Helvetica';
-    font-style: Oblique;
+    font-weight: lighter;
 
 }
 
 .PastDescription {
-    color: gray;
+    color: white;
     font-size: 20px;
     font-family: 'Helvetica';
-    font-style: Oblique;
+    font-weight: lighter;
     margin-left: 350px;
 }
 
@@ -114,14 +114,13 @@ header li {
 
 .Heythere {
     font-family: helvetica;
-    font-size: 64px;
-    background: -webkit-linear-gradient(#fd0363, #cc095d, #0a2344);
+    font-size: 48px;
+    background: -webkit-linear-gradient(#355C7D, #6C5B7B, #C06C84);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     align-items: center;
     padding-left: 250px;
     padding-top: 150px;
-    padding-bottom: 50px;
 }
 
 .AboutTextSection {
@@ -135,7 +134,7 @@ header li {
 
 
 .AboutTextSection p {
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Helvetica';
 }
 
@@ -147,7 +146,7 @@ header li {
 }
 
 .Resume {
-    font-size: 32px;
+    font-size: 24px;
     font-family: helvetica;
     font-weight: bold;
     padding-left: 250px;
@@ -173,6 +172,8 @@ header li {
     color: white;
     text-decoration: none;
     font-family: Helvetica;
+    font-size: 16px;
+    font-weight:600;
 }
 
 #navtitle {
@@ -187,6 +188,7 @@ header li {
     font-size: 16px;
     padding-right: 50px;
     border: none;
+    font-weight:600;
 }
 
 .dropdown {
@@ -220,9 +222,9 @@ header li {
 
 
 .featuredproject h1 {
-    font-size: 64px;
+    font-size: 48px;
     font-family: helvetica;
-    background: -webkit-linear-gradient(#fd0363, #cc095d, #0a2344);
+    background: -webkit-linear-gradient(#355C7D, #6C5B7B, #C06C84);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     align-items: center;
@@ -278,7 +280,7 @@ header li {
 .projectbutton {
     font-size: 24px;
     color: white;
-    background: linear-gradient(to right, #cc095d, #6b1650, #0a2344);
+    background: linear-gradient(to right,#355C7D, #6C5B7B, #C06C84);
     border-radius: 40px;
     border: none;
     padding: 15px;
@@ -313,10 +315,6 @@ header li {
 
 .m {
     padding-bottom: 50px;
-}
-
-.Getintouch {
-    color: white;
 
 }
 
@@ -328,6 +326,14 @@ header li {
     color: white;
     text-decoration: none;
     font-family: Helvetica;
+}
+
+.footerbg h2{
+    font-size: 24px;
+    font-family: helvetica;
+    background: -webkit-radial-gradient(#355C7D, #6C5B7B, #C06C84);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .bi a{
